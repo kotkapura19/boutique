@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luxury Boutique Store</title>
+
+<style>
+body{
+margin:0;
+font-family:'Segoe UI',sans-serif;
+background:#111;
+color:#fff;
+}
+
+/* NAVBAR */
+nav{
+background:#000;
+padding:15px;
+text-align:center;
+}
+
+nav a{
+color:#d4af37;
+margin:0 15px;
+text-decoration:none;
+}
+
+/* HERO */
+.hero{
+text-align:center;
+padding:80px 20px;
+background:#1a1a1a;
+}
+
+.hero h1{
+color:#d4af37;
+}
+
+/* PRODUCTS */
+.products{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:20px;
+padding:20px;
+}
+
+.product{
+background:#1c1c1c;
+padding:15px;
+width:250px;
+border-radius:10px;
+text-align:center;
+}
+
+.product img{
+width:100%;
+border-radius:10px;
+}
+
+.price{
+color:#d4af37;
+font-weight:bold;
+margin:10px 0;
+}
+
+button{
+background:#d4af37;
+border:none;
+padding:10px 15px;
+cursor:pointer;
+border-radius:20px;
+}
+
+/* CART */
+.cart{
+position:fixed;
+top:20px;
+right:20px;
+background:#d4af37;
+color:black;
+padding:10px;
+border-radius:20px;
+}
+
+/* FOOTER */
+footer{
+background:#000;
+text-align:center;
+padding:15px;
+color:#d4af37;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<a href="#">Home</a>
+<a href="#shop">Shop</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<div class="hero">
+<h1>Luxury Ladies Boutique</h1>
+<p>Shop Premium Fashion 👗</p>
+</div>
+
+<div class="cart" id="cartCount">Cart: 0</div>
+
+<div id="shop" class="products">
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab">
+<h3>Designer Suit</h3>
+<div class="price">₹2999</div>
+<button onclick="addToCart('Designer Suit',2999)">Add to Cart</button>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d">
+<h3>Bridal Lehenga</h3>
+<div class="price">₹9999</div>
+<button onclick="addToCart('Bridal Lehenga',9999)">Add to Cart</button>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1521336575822-6da63fb45455">
+<h3>Punjabi Suit</h3>
+<div class="price">₹1999</div>
+<button onclick="addToCart('Punjabi Suit',1999)">Add to Cart</button>
+</div>
+
+</div>
+
+<div style="text-align:center; margin:30px;">
+<button onclick="checkout()">Order on WhatsApp</button>
+</div>
+
+<div id="contact" style="text-align:center;">
+<p>📞 +91 98765 43210</p>
+<p>📍 Your Boutique Address</p>
+</div>
+
+<footer>
+© 2026 Luxury Boutique
+</footer>
+
+<script>
+let cart=[];
+
+function addToCart(name,price){
+cart.push({name,price});
+document.getElementById("cartCount").innerHTML="Cart: "+cart.length;
+}
+
+function checkout(){
+let message="Order Details:%0a";
+
+cart.forEach(item=>{
+message+=item.name+" - ₹"+item.price+"%0a";
+});
+
+window.open("https://wa.me/919876543210?text="+message);
+}
+</script>
+
+</body>
+</html>
