@@ -3,38 +3,95 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Luxury Boutique Store</title>
+<title>Royal Boutique</title>
 
 <style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
 body{
-margin:0;
 font-family:'Segoe UI',sans-serif;
-background:#111;
+background:linear-gradient(135deg,#0f0f0f,#1a1a1a);
 color:#fff;
+overflow-x:hidden;
 }
 
 /* NAVBAR */
 nav{
-background:#000;
+position:sticky;
+top:0;
+background:rgba(0,0,0,0.7);
+backdrop-filter:blur(10px);
 padding:15px;
 text-align:center;
+z-index:1000;
 }
 
 nav a{
 color:#d4af37;
 margin:0 15px;
 text-decoration:none;
+font-weight:bold;
+transition:0.3s;
+}
+
+nav a:hover{
+color:white;
 }
 
 /* HERO */
 .hero{
+height:90vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
 text-align:center;
-padding:80px 20px;
-background:#1a1a1a;
+background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d');
+background-size:cover;
+animation:fadeIn 2s ease;
 }
 
 .hero h1{
+font-size:50px;
 color:#d4af37;
+}
+
+.hero p{
+margin:10px 0;
+}
+
+.hero button{
+background:linear-gradient(45deg,#d4af37,#ffd700);
+border:none;
+padding:12px 30px;
+border-radius:30px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.hero button:hover{
+transform:scale(1.1);
+}
+
+/* SECTION */
+.section{
+padding:80px 20px;
+text-align:center;
+}
+
+/* GLASS CARD */
+.card{
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
+border-radius:15px;
+padding:20px;
+margin:10px;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
 }
 
 /* PRODUCTS */
@@ -43,15 +100,6 @@ display:flex;
 flex-wrap:wrap;
 justify-content:center;
 gap:20px;
-padding:20px;
-}
-
-.product{
-background:#1c1c1c;
-padding:15px;
-width:250px;
-border-radius:10px;
-text-align:center;
 }
 
 .product img{
@@ -60,17 +108,17 @@ border-radius:10px;
 }
 
 .price{
-color:#d4af37;
-font-weight:bold;
+color:#ffd700;
 margin:10px 0;
 }
 
+/* BUTTON */
 button{
 background:#d4af37;
 border:none;
-padding:10px 15px;
-cursor:pointer;
+padding:10px 20px;
 border-radius:20px;
+cursor:pointer;
 }
 
 /* CART */
@@ -78,18 +126,30 @@ border-radius:20px;
 position:fixed;
 top:20px;
 right:20px;
-background:#d4af37;
+background:#ffd700;
 color:black;
 padding:10px;
 border-radius:20px;
+}
+
+/* TESTIMONIAL */
+.testimonial{
+font-style:italic;
+margin:10px;
 }
 
 /* FOOTER */
 footer{
 background:#000;
 text-align:center;
-padding:15px;
+padding:20px;
 color:#d4af37;
+}
+
+/* ANIMATION */
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(20px);}
+to{opacity:1;transform:translateY(0);}
 }
 </style>
 </head>
@@ -99,33 +159,45 @@ color:#d4af37;
 <nav>
 <a href="#">Home</a>
 <a href="#shop">Shop</a>
+<a href="#about">About</a>
 <a href="#contact">Contact</a>
 </nav>
 
 <div class="hero">
-<h1>Luxury Ladies Boutique</h1>
-<p>Shop Premium Fashion 👗</p>
+<h1>Royal Ladies Boutique</h1>
+<p>Luxury Fashion for Modern Women 👗</p>
+<button onclick="checkout()">Shop Now</button>
 </div>
 
 <div class="cart" id="cartCount">Cart: 0</div>
 
-<div id="shop" class="products">
+<div id="about" class="section">
+<h2>About Us</h2>
+<div class="card">
+<p>We offer premium designer outfits, bridal wear, and custom stitching with luxury experience.</p>
+</div>
+</div>
 
-<div class="product">
+<div id="shop" class="section">
+<h2>Our Collection</h2>
+
+<div class="products">
+
+<div class="card product">
 <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab">
 <h3>Designer Suit</h3>
 <div class="price">₹2999</div>
 <button onclick="addToCart('Designer Suit',2999)">Add to Cart</button>
 </div>
 
-<div class="product">
+<div class="card product">
 <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d">
 <h3>Bridal Lehenga</h3>
 <div class="price">₹9999</div>
 <button onclick="addToCart('Bridal Lehenga',9999)">Add to Cart</button>
 </div>
 
-<div class="product">
+<div class="card product">
 <img src="https://images.unsplash.com/photo-1521336575822-6da63fb45455">
 <h3>Punjabi Suit</h3>
 <div class="price">₹1999</div>
@@ -134,17 +206,23 @@ color:#d4af37;
 
 </div>
 
-<div style="text-align:center; margin:30px;">
-<button onclick="checkout()">Order on WhatsApp</button>
+<button onclick="checkout()">Order via WhatsApp</button>
 </div>
 
-<div id="contact" style="text-align:center;">
+<div class="section">
+<h2>Customer Reviews</h2>
+<div class="testimonial">“Amazing quality and service!” ⭐⭐⭐⭐⭐</div>
+<div class="testimonial">“Best boutique experience ❤️” ⭐⭐⭐⭐⭐</div>
+</div>
+
+<div id="contact" class="section">
+<h2>Contact</h2>
 <p>📞 +91 98765 43210</p>
 <p>📍 Your Boutique Address</p>
 </div>
 
 <footer>
-© 2026 Luxury Boutique
+© 2026 Royal Boutique
 </footer>
 
 <script>
@@ -157,11 +235,9 @@ document.getElementById("cartCount").innerHTML="Cart: "+cart.length;
 
 function checkout(){
 let message="Order Details:%0a";
-
 cart.forEach(item=>{
 message+=item.name+" - ₹"+item.price+"%0a";
 });
-
 window.open("https://wa.me/919876543210?text="+message);
 }
 </script>
