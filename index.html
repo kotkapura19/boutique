@@ -3,244 +3,71 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BB Boutique</title>
-
+<title>Pink Glow Boutique & Parlour</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-
-body{
-font-family:'Segoe UI',sans-serif;
-background:linear-gradient(135deg,#0f0f0f,#1a1a1a);
-color:#fff;
-overflow-x:hidden;
-}
-
-/* NAVBAR */
-nav{
-position:sticky;
-top:0;
-background:rgba(0,0,0,0.7);
-backdrop-filter:blur(10px);
-padding:15px;
-text-align:center;
-z-index:1000;
-}
-
-nav a{
-color:#d4af37;
-margin:0 15px;
-text-decoration:none;
-font-weight:bold;
-transition:0.3s;
-}
-
-nav a:hover{
-color:white;
-}
-
-/* HERO */
-.hero{
-height:90vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
-url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d');
-background-size:cover;
-animation:fadeIn 2s ease;
-}
-
-.hero h1{
-font-size:50px;
-color:#d4af37;
-}
-
-.hero p{
-margin:10px 0;
-}
-
-.hero button{
-background:linear-gradient(45deg,#d4af37,#ffd700);
-border:none;
-padding:12px 30px;
-border-radius:30px;
-cursor:pointer;
-transition:0.3s;
-}
-
-.hero button:hover{
-transform:scale(1.1);
-}
-
-/* SECTION */
-.section{
-padding:80px 20px;
-text-align:center;
-}
-
-/* GLASS CARD */
-.card{
-background:rgba(255,255,255,0.05);
-backdrop-filter:blur(10px);
-border-radius:15px;
-padding:20px;
-margin:10px;
-transition:0.3s;
-}
-
-.card:hover{
-transform:translateY(-10px);
-}
-
-/* PRODUCTS */
-.products{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:20px;
-}
-
-.product img{
-width:100%;
-border-radius:10px;
-}
-
-.price{
-color:#ffd700;
-margin:10px 0;
-}
-
-/* BUTTON */
-button{
-background:#d4af37;
-border:none;
-padding:10px 20px;
-border-radius:20px;
-cursor:pointer;
-}
-
-/* CART */
-.cart{
-position:fixed;
-top:20px;
-right:20px;
-background:#ffd700;
-color:black;
-padding:10px;
-border-radius:20px;
-}
-
-/* TESTIMONIAL */
-.testimonial{
-font-style:italic;
-margin:10px;
-}
-
-/* FOOTER */
-footer{
-background:#000;
-text-align:center;
-padding:20px;
-color:#d4af37;
-}
-
-/* ANIMATION */
-@keyframes fadeIn{
-from{opacity:0;transform:translateY(20px);}
-to{opacity:1;transform:translateY(0);}
-}
+body {margin:0;font-family:Arial, sans-serif;background:#fff5f7;color:#333;}
+header {background:#e8a0bf;color:white;padding:15px;text-align:center;}
+nav {display:flex;justify-content:center;gap:20px;background:#fff;padding:10px;}
+nav a {text-decoration:none;color:#333;font-weight:bold;}
+.hero {padding:50px;text-align:center;background:#ffe4ec;}
+.hero h1 {font-size:40px;}
+.btn {padding:10px 20px;background:#c9a227;color:white;border:none;border-radius:5px;cursor:pointer;}
+.section {padding:40px;text-align:center;}
+.cards {display:flex;flex-wrap:wrap;gap:20px;justify-content:center;}
+.card {background:white;padding:20px;border-radius:10px;width:250px;box-shadow:0 0 10px rgba(0,0,0,0.1);}
+.gallery img {width:200px;height:200px;object-fit:cover;border-radius:10px;margin:10px;}
+footer {background:#e8a0bf;color:white;text-align:center;padding:15px;}
 </style>
 </head>
-
 <body>
+
+<header>
+<h2>Pink Glow Boutique & Beauty Parlour</h2>
+</header>
 
 <nav>
 <a href="#">Home</a>
-<a href="#shop">Shop</a>
-<a href="#about">About</a>
+<a href="#services">Services</a>
+<a href="#gallery">Gallery</a>
 <a href="#contact">Contact</a>
 </nav>
 
 <div class="hero">
-<h1>BB Ladies Boutique</h1>
-<p>BB Fashion for Modern Women 👗</p>
-<button onclick="checkout()">Shop Now</button>
+<h1>Enhance Your Beauty & Style</h1>
+<p>Bridal Makeup | Designer Suits | Hair Styling</p>
+<button class="btn">Book Appointment</button>
 </div>
 
-<div class="cart" id="cartCount">Cart: 0</div>
-
-<div id="about" class="section">
-<h2>About Us</h2>
+<div class="section" id="services">
+<h2>Our Services</h2>
+<div class="cards">
 <div class="card">
-<p>We offer premium designer outfits, bridal wear, and custom stitching with luxury experience.</p>
+<h3>Boutique</h3>
+<p>Designer Suits, Bridal Wear, Custom Stitching</p>
+</div>
+<div class="card">
+<h3>Parlour</h3>
+<p>Makeup, Facial, Hair Styling, Waxing</p>
 </div>
 </div>
-
-<div id="shop" class="section">
-<h2>Our Collection</h2>
-
-<div class="products">
-
-<div class="card product">
-<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab">
-<h3>Designer Suit</h3>
-<div class="price">₹2999</div>
-<button onclick="addToCart('Designer Suit',2999)">Add to Cart</button>
 </div>
 
-<div class="card product">
-<img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d">
-<h3>Bridal Lehenga</h3>
-<div class="price">₹9999</div>
-<button onclick="addToCart('Bridal Lehenga',9999)">Add to Cart</button>
+<div class="section gallery" id="gallery">
+<h2>Gallery</h2>
+<img src="https://via.placeholder.com/200">
+<img src="https://via.placeholder.com/200">
+<img src="https://via.placeholder.com/200">
 </div>
 
-<div class="card product">
-<img src="https://images.unsplash.com/photo-1521336575822-6da63fb45455">
-<h3>Punjabi Suit</h3>
-<div class="price">₹1999</div>
-<button onclick="addToCart('Punjabi Suit',1999)">Add to Cart</button>
-</div>
-
-</div>
-
-<button onclick="checkout()">Order via WhatsApp</button>
-</div>
-
-<div class="section">
-<h2>Customer Reviews</h2>
-<div class="testimonial">“Amazing quality and service!” ⭐⭐⭐⭐⭐</div>
-<div class="testimonial">“Best boutique experience ❤️” ⭐⭐⭐⭐⭐</div>
-</div>
-
-<div id="contact" class="section">
-<h2>Contact</h2>
-<p>📞 +91 1234554321</p>
-<p>📍 Your Boutique Address</p>
+<div class="section" id="contact">
+<h2>Contact Us</h2>
+<p>Phone: 8146764077</p>
+<p>Website: sacredmind.in</p>
 </div>
 
 <footer>
-© 2026 BB Royal Boutique
+<p>© 2026 Pink Glow Boutique</p>
 </footer>
-
-<script>
-let cart=[];
-
-function addToCart(name,price){
-cart.push({name,price});
-document.getElementById("cartCount").innerHTML="Cart: "+cart.length;
-}
-
-function checkout(){
-let message="Order Details:%0a";
-cart.forEach(item=>{
-message+=item.name+" - ₹"+item.price+"%0a";
-});
-window.open("https://wa.me/919876543210?text="+message);
-}
-</script>
 
 </body>
 </html>
